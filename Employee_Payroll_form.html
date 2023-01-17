@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/Employee_payroll_form.css">
+  <script defer src="./js/EmployeePayrollData.js"></script>
+  <script defer src="./js/Employee_payroll_form.js"></script>
   <title> Employee payroll form </title>
 </head>
 
@@ -22,7 +24,7 @@
     </div>
   </header>
   <div class="form-content">
-    <form class="form" action="#">
+    <form class="form" onsubmit="save(event);return false">
       <div class="form-head"> Employee payroll form </div>
       <div class="row-content">
         <label class="label text" for="name">Name</label>
@@ -73,15 +75,15 @@
       <div class="row-content">
         <label class="label text" for="department">Department</label>
         <div>
-          <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+          <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
           <label class="text" for="hr">HR</label>
-          <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+          <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
           <label class="text" for="sales">Sales</label>
-          <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+          <input class="checkbox" type="checkbox" id="finance" name="department" value="Finance">
           <label class="text" for="finance">Finance</label>
-          <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
+          <input class="checkbox" type="checkbox" id="engineer" name="department" value="Engineer">
           <label class="text" for="engineer">Engineer</label>
-          <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
+          <input class="checkbox" type="checkbox" id="others" name="department" value="Others">
           <label class="text" for="others">Others</label>
         </div>
       </div>
@@ -152,7 +154,7 @@
       </div>
       <div class="row-content">
         <label class="label text" for="notes">Notes</label>
-        <textarea id="notes" class="input" name="Notes" style="height:100px"></textarea>
+        <textarea id="notes" class="input" name="note" style="height:100px"></textarea>
       </div>
       <div class="buttonParent">
         <a href="./home.html" class="button cancelButton">Cancel</a>
