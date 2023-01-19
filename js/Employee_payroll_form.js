@@ -17,5 +17,6 @@ function save(event){
     empDate.salary = event.target.salary.value;
     empDate.note = event.target.note.value;
     empDate.startDate = ("0" + event.target.Month.value).slice(-2) + "-" + ( "0" + event.target.Day.value).slice(-2) + "-"  + event.target.year.value;
+    localStorage.setItem("personObj", empDate.toString())
     alert(empDate.toString())
 }
