@@ -8,10 +8,16 @@ class EmpPayrollData {
 
     get name() { return this._name; }
     set name(name) {
+        let errorTextName = document.querySelector(".text-error-name");
         let nameRegex = RegExp('^[A-Z][a-z A-Z \\s]{2,}$')
-        if (nameRegex.test(name))
+        if (nameRegex.test(name)){
             this._name = name;
-        else throw 'Name is Incorrect!';
+            errorTextName.textContent = "";
+        }  
+        else {
+            errorTextName.textContent = "Invalid name. Name should be atleast 3 characters and should start with capital"
+            throw 'Name is Incorrect!';
+        }
     }
     get profilePic() { return this._profilePic; }
     set profilePic(profilePic) {
@@ -40,11 +46,14 @@ class EmpPayrollData {
 
     get startDate() { return this._startDate; }
     set startDate(startDate) {
+         let errorTextDate = document.querySelector(".text-error-date");
          let dateDiff = new Date().getTime() - new Date(startDate).getTime();
          console.log(dateDiff)
          if(dateDiff > 0 && dateDiff <= 30*24*60*60*1000){
             this._startDate = startDate 
+            errorTextDate.textContent = ""
          } else {
+            errorTextDate.textContent = "Invalid date. Date should be with in 30 days of joining"
             throw 'Date is Incorrect!';
          }
          
