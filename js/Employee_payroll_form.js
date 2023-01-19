@@ -16,6 +16,6 @@ function save(event){
     empDate.department = event.target.department.value;
     empDate.salary = event.target.salary.value;
     empDate.note = event.target.note.value;
-    empDate.startDate = ( "0" + event.target.Day.value).slice(-2) + "-" + ("0" + event.target.Month.value).slice(-2) + "-" + event.target.year.value;
+    empDate.startDate = ("0" + event.target.Month.value).slice(-2) + "-" + ( "0" + event.target.Day.value).slice(-2) + "-"  + event.target.year.value;
     alert(empDate.toString())
 }

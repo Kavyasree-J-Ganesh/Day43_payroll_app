@@ -47,6 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     border: 0px solid green;
+    flex-wrap: wrap;
 }
 
 .form {
@@ -75,6 +76,7 @@ body {
     margin-bottom: 10px;
     align-items: center;
     border: 0px solid green;
+    flex-wrap: wrap;
 }
 
 .label {
@@ -193,4 +195,13 @@ select {
     .profile-radio-content{
         flex-flow: wrap;
     }
+}
+
+error-output{
+    display: block;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+    margin-top: 1%;
+    width: 100%;
 }
