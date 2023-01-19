@@ -40,8 +40,15 @@ class EmpPayrollData {
 
     get startDate() { return this._startDate; }
     set startDate(startDate) {
-         this._startDate = startDate 
-        }
+         let dateDiff = new Date().getTime() - new Date(startDate).getTime();
+         console.log(dateDiff)
+         if(dateDiff > 0 && dateDiff <= 30*24*60*60*1000){
+            this._startDate = startDate 
+         } else {
+            throw 'Date is Incorrect!';
+         }
+         
+    }
 
     //method
     toString() {
