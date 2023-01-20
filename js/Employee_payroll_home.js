@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", (event)=>{
-   const employeeList = createEmployeePayrollJSON();
+   storeEmpListToLocatStorage();
+   createInnerHtml();
+})
+
+
+const createInnerHtml = () => {
+    const employeeList = getEmpPayrollListFromLocalStorage();
    const headerHtml = `
    <tr>
    <th></th>
@@ -31,12 +37,9 @@ document.addEventListener("DOMContentLoaded", (event)=>{
         </td>
     </tr>`
    }
-   
-   
 
-
-document.querySelector("#display").innerHTML = innerHtml
-})
+   document.querySelector("#display").innerHTML = innerHtml;
+}
 
 const getDeptHtml = (departments)=>{
     let deptHtml = '';
@@ -45,8 +48,8 @@ const getDeptHtml = (departments)=>{
     }
 }
 
-const createEmployeePayrollJSON = ()=>{
-    return [
+const storeEmpListToLocatStorage = ()=>{
+    localStorage.setItem("empPayrollList", JSON.stringify([
         {
           "name": "mohit kumar new",
           "gender": "male",
@@ -95,5 +98,9 @@ const createEmployeePayrollJSON = ()=>{
           "id": 1604589731061,
           "profileUrl": "../assets/profile-images/Ellipse -3.png"
         }
-      ]
+      ]))
+}
+
+const getEmpPayrollListFromLocalStorage = ()=>{
+    return localStorage.getItem("empPayrollList") ? JSON.parse(localStorage.getItem("empPayrollList")) : []
 }
