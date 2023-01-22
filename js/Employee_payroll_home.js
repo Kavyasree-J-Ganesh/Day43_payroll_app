@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
           "startDate": "1 Jan 2020",
           "notes": "",
           "id": 1604589551457,
-          "profileUrl": "../assets/profile-images/Ellipse 1.png"
+          "profileUrl": "../assets/profile-images/Ellipse -1.png"
         },
         {
           "name": "mohit kumar test",
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", (event)=>{
           "startDate": "1 Jan 2020",
           "notes": "",
           "id": 1604589594363,
-          "profileUrl": "../assets/profile-images/Ellipse 1.png"
+          "profileUrl": "../assets/profile-images/Ellipse -1.png"
         },
         {
           "name": "mohit",
@@ -83,8 +83,8 @@ const createInnerHtml = () => {
         <td>${employee.salary}</td>
         <td>${employee.startDate}</td>
         <td>
-            <img id="${employee.id}" onclick="deletePerson(${employee.id})" alt="Delete" src="./assets/icons/delete-black-18dp.svg">
-           <img id="${employee.id}"  alt="Edit" src="./assets/icons/create-black-18dp.svg">
+            <img id="${employee.id}" onclick="remove(${employee.id})" alt="Delete" src="./assets/icons/delete-black-18dp.svg">
+           <img id="${employee.id}" onclick="update(${employee.id})"  alt="Edit" src="./assets/icons/create-black-18dp.svg">
         </td>
     </tr>`
    }
@@ -110,7 +110,7 @@ const getEmpPayrollListFromLocalStorage = ()=>{
 }
 
 
-const deletePerson = (id) =>{
+const remove = (id) =>{
     if(employeeList.find(emp=> emp.id === id)){
         
         employeeList = employeeList.filter(emp=> emp.id != id);
@@ -118,4 +118,15 @@ const deletePerson = (id) =>{
         storeEmpListToLocatStorage(employeeList)
         createInnerHtml();
     }
+}
+
+const update = (id) =>{
+    localStorage.setItem("editEmp", JSON.stringify(employeeList.find(emp=> emp.id === id)))
+    location.replace(site_properties.add_emp_payroll_page)
+}
+
+const addUser = (event)=>{
+    event.preventDefault();
+    localStorage.removeItem("editEmp")
+    location.replace(site_properties.add_emp_payroll_page)
 }

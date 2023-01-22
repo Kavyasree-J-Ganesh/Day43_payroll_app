@@ -44,21 +44,6 @@ class EmpPayrollData {
          this._note = note; 
         }
 
-        get day() { return this._day; }
-        set day(day) {
-             this._day = day; 
-        }
-
-        get month() { return this._month; }
-        set month(month) {
-             this._month = month; 
-        }
-
-        get year() { return this._year; }
-        set year(year) {
-             this._year = year; 
-        }
-
     get startDate() { return this._startDate; }
     set startDate(startDate) {
          let errorTextDate = document.querySelector(".text-error-date");
